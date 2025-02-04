@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pêndulo Divinatório</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="menu">
+        <a href="https://alexxanorafa.github.io/Tempo_e_Sonhos/" class="menu-item">Tempo e Sonhos</a>
+        <a href="https://alexxanorafa.github.io/posicionamentodosastros/" class="menu-item">Mapa Astral</a>
+        <a href="https://alexxanorafa.github.io/Aneis_da_Sabedoria/" class="menu-item">Anéis da Sabedoria</a>
+        <a href="https://alexxanorafa.github.io/TarodeMarselha/" class="menu-item">Tarô de Marselha</a>
+        <a href="https://alexxanorafa.github.io/Runas-do-Destino/" class="menu-item">Runas do Destino</a>
+        <a href="https://alexxanorafa.github.io/O-Construtor-do-Destino/" class="menu-item">O Construtor do Destino</a>
+        <a href="https://alexxanorafa.github.io/Tabuleiro-Quantico/" class="menu-item">Tabuleiro Quantico</a>
+        <a href="https://alexxanorafa.github.io/Oraculo-das-Pedras/" class="menu-item">Oráculo das Pedras</a>
+        <a href="https://alexxanorafa.github.io/I-Ching-Virtual/" class="menu-item">I Ching Virtual</a>
+        <a href="https://alexxanorafa.github.io/Biblioteca-Onirica/" class="menu-item">Biblioteca Onirica</a>
+        <a href="https://alexxanorafa.github.io/Kabbalah-Interativa/" class="menu-item">Kabbalah Interativa</a>
+        <a href="https://alexxanorafa.github.io/Almas-Conectadas/" class="menu-item">Almas Conectadas</a>
+      </nav>
+      <div class="container">
+        <div id="start-screen">
+            <h1>⌛ Pêndulo Divinatório</h1>
+            
+            <div class="tradition-grid">
+                <button class="tradition-btn active" data-tradition="global">Global</button>
+                <button class="tradition-btn" data-tradition="celtic">Celta</button>
+                <button class="tradition-btn" data-tradition="african">Yorubá</button>
+                <button class="tradition-btn" data-tradition="oriental">Taoista</button>
+                <button class="tradition-btn" data-tradition="nordic">Nórdico</button>
+            </div>
+
+            <div class="question-box">
+                <textarea id="userQuestion" placeholder="Faça sua pergunta..." rows="3"></textarea>
+                <button class="consult-btn" onclick="initiateDivination()">Consultar</button>
+            </div>
+        </div>
+
+        <div id="pendulum-screen" class="hidden">
+            <div id="pendulum-container">
+                <div id="pendulum">
+                    <div class="cord"></div>
+                    <div class="weight"></div>
+                </div>
+                <div class="divination-ring">
+                    <div class="rune">ᚠ</div>
+                    <div class="rune">ᚢ</div>
+                    <div class="rune">ᚦ</div>
+                    <div class="rune">ᚨ</div>
+                </div>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+
+        <div id="interpretation-screen" class="hidden">
+            <div class="result-header">
+                <h2 id="interpretation-title"></h2>
+                <div class="element-pill" id="element"></div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-card">
+                    <h3>📖 Interpretação</h3>
+                    <p id="interpretation-text"></p>
+                </div>
+                <div class="result-card">
+                    <h3>⚡ Energia</h3>
+                    <p id="energy-type"></p>
+                </div>
+                <div class="result-card">
+                    <h3>🔮 Conselho</h3>
+                    <p id="advice"></p>
+                </div>
+            </div>
+            <button class="reset-btn" onclick="resetPendulum()">Nova Consulta</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
