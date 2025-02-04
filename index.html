@@ -29,13 +29,13 @@
             <div class="tradition-grid">
                 <button class="tradition-btn active" data-tradition="global">Global</button>
                 <button class="tradition-btn" data-tradition="celtic">Celta</button>
-                <button class="tradition-btn" data-tradition="african">Yorubá</button>
-                <button class="tradition-btn" data-tradition="oriental">Taoista</button>
+                <button class="tradition-btn" data-tradition="yoruba">Yorubá</button>
+                <button class="tradition-btn" data-tradition="taoista">Taoista</button>
                 <button class="tradition-btn" data-tradition="nordic">Nórdico</button>
             </div>
 
             <div class="question-box">
-                <textarea id="userQuestion" placeholder="Faça sua pergunta..." rows="3"></textarea>
+                <textarea id="userQuestion" placeholder="Faça sua pergunta..." rows="2"></textarea>
                 <button class="consult-btn" onclick="initiateDivination()">Consultar</button>
             </div>
         </div>
@@ -47,21 +47,22 @@
                     <div class="weight"></div>
                 </div>
                 <div class="divination-ring">
-                    <div class="rune">ᚠ</div>
-                    <div class="rune">ᚢ</div>
-                    <div class="rune">ᚦ</div>
-                    <div class="rune">ᚨ</div>
+                    <div class="rune">↑</div>
+                    <div class="rune">→</div>
+                    <div class="rune">↓</div>
+                    <div class="rune">←</div>
                 </div>
             </div>
-            <div class="loading-bar">
-                <div class="loading-progress"></div>
+            <div class="status-bar">
+                <div class="status-text">Analisando energia...</div>
+                <div class="loading-dots"></div>
             </div>
         </div>
 
         <div id="interpretation-screen" class="hidden">
             <div class="result-header">
                 <h2 id="interpretation-title"></h2>
-                <div class="element-pill" id="element"></div>
+                <div class="element-tag" id="element"></div>
             </div>
             
             <div class="result-grid">
