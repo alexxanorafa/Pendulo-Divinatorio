@@ -87,183 +87,205 @@ h1 {
 }
 
 .container {
+    flex: 1;
     max-width: 600px;
     margin: 0 auto;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
-    padding: 20px;
-    backdrop-filter: blur(5px);
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    margin: 15px 0;
+    font-size: 2rem;
 }
 
 .tradition-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 8px;
-    margin: 25px 0;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 6px;
+    margin: 15px 0;
 }
 
 .tradition-btn {
     background: var(--secondary);
     border: 1px solid var(--primary);
     color: var(--primary);
-    padding: 10px;
-    border-radius: 8px;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 0.9rem;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.2s;
 }
 
 .tradition-btn.active {
     background: var(--primary);
     color: var(--secondary);
-    font-weight: bold;
 }
 
 .question-box {
-    margin: 25px 0;
-    color: #2c3e50;
+    margin: 15px 0;
 }
 
 textarea {
     width: 100%;
-    background: #2c3e50;
+    box-sizing: border-box;
+    background: rgba(255,255,255,0.05);
     border: 1px solid var(--primary);
-    color: #d4b192;
-    border-radius: 10px;
-    padding: 15px;
-    font-size: 16px;
-    min-height: 100px;
+    color: #2c3e50;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1rem;
+    min-height: 80px;
     resize: vertical;
+    margin: 0;
 }
 
 .consult-btn {
     width: 100%;
-    margin-top: 15px;
+    margin-top: 10px;
     background: var(--primary);
     color: var(--secondary);
+    padding: 12px;
+    border-radius: 8px;
     font-weight: bold;
-    padding: 15px;
-    border-radius: 10px;
 }
 
 #pendulum-screen {
     position: relative;
-    min-height: 60vh;
+    height: 60vh;
+    max-height: 400px;
 }
 
 #pendulum-container {
     position: relative;
-    height: 300px;
-    margin: 30px 0;
+    height: 50%;
+    margin: 10px 0;
 }
 
 #pendulum {
     position: absolute;
     left: 50%;
-    top: 0;
+    top: 10%;
     transform-origin: 50% 0;
+    animation: pendulum-swing 2s ease-in-out infinite;
+}
+
+@keyframes pendulum-swing {
+    0%, 100% { transform: rotate(-30deg); }
+    50% { transform: rotate(30deg); }
 }
 
 .cord {
     width: 2px;
-    height: 180px;
-    background: linear-gradient(to bottom, 
-        transparent 10%, 
-        var(--primary) 50%, 
-        transparent 90%);
+    height: 150px;
+    background: var(--primary);
     margin: 0 auto;
 }
 
 .weight {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background: var(--secondary);
-    border: 3px solid var(--primary);
+    border: 2px solid var(--primary);
     border-radius: 50%;
-    margin-top: -15px;
-    box-shadow: 0 0 15px var(--primary);
+    margin-top: -12px;
 }
 
 .divination-ring {
     position: absolute;
-    width: 200px;
-    height: 200px;
-    left: calc(50% - 100px);
-    top: calc(50% - 100px);
-    border: 2px solid var(--primary);
+    width: 160px;
+    height: 160px;
+    left: calc(50% - 80px);
+    top: calc(50% - 80px);
+    border: 1px solid var(--primary);
     border-radius: 50%;
-    opacity: 0.6;
+    opacity: 0.5;
 }
 
 .rune {
     position: absolute;
-    font-size: 24px;
-    width: 30px;
-    height: 30px;
+    font-size: 1.2rem;
+}
+
+.rune:nth-child(1) { top: 5%; left: 46%; }
+.rune:nth-child(2) { top: 46%; right: 5%; }
+.rune:nth-child(3) { bottom: 5%; left: 46%; }
+.rune:nth-child(4) { top: 46%; left: 5%; }
+
+.status-bar {
     text-align: center;
+    margin: 15px 0;
 }
 
-.rune:nth-child(1) { top: 10px; left: 85px; }
-.rune:nth-child(2) { top: 85px; right: 10px; }
-.rune:nth-child(3) { bottom: 10px; left: 85px; }
-.rune:nth-child(4) { top: 85px; left: 10px; }
-
-.loading-bar {
-    width: 80%;
-    height: 4px;
-    background: var(--secondary);
-    margin: 20px auto;
-    border-radius: 2px;
+.loading-dots {
+    display: inline-block;
+    margin: 10px;
+}
+.loading-dots::after {
+    content: '...';
+    animation: dots 1.5s infinite;
 }
 
-.loading-progress {
-    height: 100%;
-    background: var(--primary);
-    width: 0%;
-    transition: width 5s linear;
+@keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
 }
 
 .result-grid {
     display: grid;
-    gap: 15px;
-    margin: 25px 0;
+    gap: 12px;
+    margin: 20px 0;
 }
 
 .result-card {
-    background: var(--secondary);
-    padding: 20px;
-    border-radius: 10px;
+    background: rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 8px;
     border: 1px solid var(--primary);
 }
 
-.element-pill {
+.element-tag {
     background: var(--primary);
     color: var(--secondary);
-    padding: 5px 15px;
-    border-radius: 20px;
+    padding: 4px 12px;
+    border-radius: 15px;
     display: inline-block;
-    margin: 10px 0;
-    font-weight: bold;
+    font-size: 0.9rem;
 }
 
 .reset-btn {
     width: 100%;
     background: var(--primary);
     color: var(--secondary);
-    padding: 15px;
-    border-radius: 10px;
-    font-weight: bold;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 15px;
 }
 
 @media (max-width: 480px) {
     .container {
-        padding: 15px;
+        padding: 10px;
     }
     
     h1 {
-        font-size: 1.8em;
+        font-size: 1.6rem;
     }
     
-    .tradition-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .tradition-btn {
+        font-size: 0.8rem;
+        padding: 6px;
+    }
+    
+    textarea {
+        font-size: 0.9rem;
+        min-height: 70px;
+    }
+    
+    #pendulum-screen {
+        height: 50vh;
     }
 }
